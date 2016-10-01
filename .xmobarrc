@@ -1,0 +1,14 @@
+Config { 
+--font = "xft:Bitstream Vera Sans Mono:size=8:antialias=true"
+	font = "xft:Terminus:pixelsize=16:antialias=true:bold"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 100,
+       , lowerOnStart = True
+       , commands = [ Run Date "%a %b %_d %l:%M" "date" 10
+		    , Run BatteryP ["BAT0"] ["-t","<left>%"] 10
+              	    , Run StdinReader ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ | <icon=/home/nanor/.icons/clock.xbm/> %date% | <icon=/home/nanor/.icons/bat.xbm/> %battery% | "
+       }
